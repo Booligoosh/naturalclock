@@ -1,9 +1,29 @@
 <script lang="ts">
   import Clock from "./lib/Clock/Clock.svelte";
+
+  let latitude = Number(localStorage.getItem("latitude") ?? undefined);
+  let longitude = Number(localStorage.getItem("longitude") ?? undefined);
+  let altitude = Number(localStorage.getItem("altitude") ?? undefined);
+
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      console.log(pos);
+      latitude = pos.coords.latitude;
+      localStorage.setItem("latitude", (latitude || 0).toString());
+      longitude = pos.coords.longitude;
+      localStorage.setItem("longitude", (longitude || 0).toString());
+      altitude = pos.coords.altitude;
+      localStorage.setItem("altitude", (altitude || 0).toString());
+    });
+  } else {
+    alert("Geolocation is not available");
+  }
 </script>
 
 <main>
-  <Clock />
+  {#if !isNaN(latitude) && !isNaN(longitude) && !isNaN(altitude)}
+    <Clock {latitude} {longitude} {altitude} />
+  {/if}
   <div class="footer">
     <h1 class="title">NaturalClock</h1>
     <div class="time">

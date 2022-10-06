@@ -1,4 +1,8 @@
 <script lang="ts">
+  export let latitude: number;
+  export let longitude: number;
+  export let altitude: number;
+
   import { getTimes } from "suncalc";
   import { timeToPercent } from "../helpers";
   import Hand from "./Hand.svelte";
@@ -10,14 +14,9 @@
   let width = (clockRadius + margin) * 2;
   let height = (clockRadius + margin) * 2;
 
-  let times = getTimes(
-    new Date(),
-    localStorage.lat,
-    localStorage.lon,
-    localStorage.alt
-  );
+  $: times = getTimes(new Date(), latitude, longitude, altitude);
 
-  let rotation = timeToPercent(times.solarNoon) * -360;
+  $: rotation = timeToPercent(times.solarNoon) * -360;
   let now = new Date();
 </script>
 
