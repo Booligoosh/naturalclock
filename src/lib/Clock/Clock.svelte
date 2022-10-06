@@ -20,7 +20,7 @@
   let now = new Date();
 </script>
 
-<svg {width} {height} style="filter: drop-shadow(0 6px 4px hsl(0, 0%, 9%))">
+<svg viewBox={`0 0 ${width} ${height}`} class="clock-svg">
   <g
     id="clock-face"
     transform={`translate(${clockRadius + margin},${
@@ -69,3 +69,12 @@
     <Hand {clockRadius} time={now} />
   </g>
 </svg>
+
+<style>
+  .clock-svg {
+    filter: drop-shadow(0 6px 4px hsl(0, 0%, 9%));
+    width: 100%;
+    height: 100%;
+    max-height: 60vh;
+  }
+</style>
