@@ -17,8 +17,8 @@
       localStorage.setItem("latitude", latitude.toString());
       longitude = pos.coords.longitude || 0;
       localStorage.setItem("longitude", longitude.toString());
-      // Math.max fixes wild negative numbers returned by some browsers
-      altitude = Math.max(-1000, pos.coords.altitude || 0);
+      // Fix wild negative numbers returned by some browsers
+      altitude = pos.coords.altitude < -1000 ? 0 : pos.coords.altitude || 0;
       localStorage.setItem("altitude", altitude.toString());
     });
   } else {
