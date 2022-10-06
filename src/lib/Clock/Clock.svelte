@@ -62,9 +62,10 @@
       />
     </g>
     <g class="ticks" opacity={0.5}>
-      <Ticks numTicks={24 * 4} tickLength={10} {clockRadius} />
-      <Ticks numTicks={24} tickLength={20} {clockRadius} />
-      <Ticks numTicks={4} tickLength={40} {clockRadius} />
+      <Ticks numTicks={24 * 4} tickLength={10} strokeWidth={1} {clockRadius} />
+      <Ticks numTicks={24} tickLength={20} strokeWidth={3} {clockRadius} />
+      <!-- <Ticks numTicks={8} tickLength={30} strokeWidth={3} {clockRadius} /> -->
+      <Ticks numTicks={4} tickLength={40} strokeWidth={3} {clockRadius} />
     </g>
     <Hand {clockRadius} time={now} />
   </g>

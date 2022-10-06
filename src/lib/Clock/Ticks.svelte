@@ -5,6 +5,7 @@
   export let numTicks: number;
   export let tickLength: number;
   export let clockRadius: number;
+  export let strokeWidth: number;
 
   $: ticksScale = scaleLinear().range([0, 360]).domain([0, numTicks]);
   $: ticksRange = range(numTicks);
@@ -17,7 +18,7 @@
     y1={clockRadius}
     y2={clockRadius - tickLength}
     transform={`rotate(${ticksScale(tickValue)})`}
-    stroke-width={3}
+    stroke-width={strokeWidth}
     stroke="currentColor"
   />
 {/each}
