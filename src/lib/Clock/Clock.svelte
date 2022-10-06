@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let now: Date;
   export let latitude: number;
   export let longitude: number;
   export let altitude: number;
@@ -14,10 +15,9 @@
   let width = (clockRadius + margin) * 2;
   let height = (clockRadius + margin) * 2;
 
-  $: times = getTimes(new Date(), latitude, longitude, altitude);
+  $: times = getTimes(now, latitude, longitude, altitude);
 
   $: rotation = timeToPercent(times.solarNoon) * -360;
-  let now = new Date();
 </script>
 
 <svg viewBox={`0 0 ${width} ${height}`} class="clock-svg">
