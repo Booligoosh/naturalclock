@@ -3,6 +3,9 @@
 
   let now = new Date();
 
+  // Update date every 5s
+  setInterval(() => (now = new Date()), 5 * 1000);
+
   let latitude = Number(localStorage.getItem("latitude") ?? undefined);
   let longitude = Number(localStorage.getItem("longitude") ?? undefined);
   let altitude = Number(localStorage.getItem("altitude") ?? undefined);
