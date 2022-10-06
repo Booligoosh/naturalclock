@@ -6,7 +6,7 @@
   import Ticks from "./Ticks.svelte";
 
   let clockRadius = 200;
-  let margin = 50;
+  let margin = 0;
   let width = (clockRadius + margin) * 2;
   let height = (clockRadius + margin) * 2;
 
@@ -21,12 +21,13 @@
   let now = new Date();
 </script>
 
-<svg {width} {height}>
+<svg {width} {height} style="filter: drop-shadow(0 6px 4px hsl(0, 0%, 9%))">
   <g
     id="clock-face"
     transform={`translate(${clockRadius + margin},${
       clockRadius + margin
     }) rotate(${rotation})`}
+    color="white"
   >
     <g class="phases">
       <Phase
@@ -69,4 +70,3 @@
     <Hand {clockRadius} time={now} />
   </g>
 </svg>
-<pre style="text-align: left">{JSON.stringify(times, null, 2)}</pre>
