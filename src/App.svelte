@@ -49,14 +49,14 @@
   }
   .title {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
     opacity: 0.5;
   }
 
   .time {
-    font-size: 2.5rem;
-    font-weight: 900;
+    font-size: 1.75rem;
+    font-weight: 600;
     opacity: 0.7;
   }
 </style>
