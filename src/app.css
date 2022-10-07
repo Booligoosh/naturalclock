@@ -32,6 +32,7 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
+  box-shadow: 0 0 0 12px inset hsl(0, 0%, 23%);
 }
 
 #app {
@@ -67,6 +68,9 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
+  }
+  body {
+    box-shadow: 0 0 0 6px inset hsl(0, 0%, 90%);
   }
   a:hover {
     color: #747bff;
