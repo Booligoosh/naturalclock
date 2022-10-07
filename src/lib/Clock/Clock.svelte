@@ -45,7 +45,7 @@
       <Phase
         start={times.night}
         end={times.nightEnd}
-        fill="#000000"
+        fill="hsl(0, 0%, 4%)"
         {clockRadius}
       />
       <Phase
@@ -73,9 +73,8 @@
 
 <style>
   .clock-svg {
-    filter: drop-shadow(0 6px 4px hsl(0, 0%, 9%));
     width: 100%;
-    height: 100%;
-    max-height: 60vh;
+    height: 60vh;
+    max-height: 400px;
   }
 </style>
