@@ -4,7 +4,8 @@
   export let clockRadius: number;
   export let time: Date;
 
-  const triangleBaseWidth = 8;
+  const triangleBaseWidth = 4;
+  const extrusionLength = 20;
 </script>
 
 <polyline
@@ -12,4 +13,9 @@
   transform={`rotate(${timeToPercent(time) * 360})`}
   fill="currentColor"
 />
-<circle cx={0} cy={0} r={triangleBaseWidth} fill="currentColor" />
+<polyline
+  points={`${triangleBaseWidth} ${extrusionLength}, -${triangleBaseWidth} ${extrusionLength},-${triangleBaseWidth} 0,${triangleBaseWidth} 0`}
+  transform={`rotate(${timeToPercent(time) * 360})`}
+  fill="currentColor"
+/>
+<circle cx={0} cy={0} r={2 * triangleBaseWidth} fill="currentColor" />
