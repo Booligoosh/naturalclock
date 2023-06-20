@@ -9,6 +9,7 @@
   import Hand from "./Hand.svelte";
   import Phase from "./Phase.svelte";
   import Ticks from "./Ticks.svelte";
+  import Numbers from "./Numbers.svelte";
 
   let clockRadius = 200;
   let margin = 0;
@@ -17,7 +18,7 @@
 
   $: times = getTimes(now, latitude, longitude, altitude);
 
-  $: rotation = timeToPercent(times.solarNoon) * -360;
+  $: clockRotation = timeToPercent(times.solarNoon) * -360;
 </script>
 
 <svg viewBox={`0 0 ${width} ${height}`} class="clock-svg">
@@ -25,7 +26,7 @@
     id="clock-face"
     transform={`translate(${clockRadius + margin},${
       clockRadius + margin
-    }) rotate(${rotation})`}
+    }) rotate(${clockRotation})`}
     color="white"
   >
     <g class="phases">
@@ -65,8 +66,28 @@
       <Ticks numTicks={24 * 4} tickLength={10} strokeWidth={1} {clockRadius} />
       <Ticks numTicks={24} tickLength={20} strokeWidth={3} {clockRadius} />
       <!-- <Ticks numTicks={8} tickLength={30} strokeWidth={3} {clockRadius} /> -->
-      <Ticks numTicks={4} tickLength={40} strokeWidth={3} {clockRadius} />
+      <Ticks numTicks={4} tickLength={30} strokeWidth={3} {clockRadius} />
     </g>
+    <Numbers
+      fontSize={14}
+      fontWeight={600}
+      opacity={0.7}
+      radialOffset={40}
+      numbers={[
+        1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23,
+      ]}
+      {clockRadius}
+      {clockRotation}
+    />
+    <Numbers
+      fontSize={22}
+      fontWeight={800}
+      opacity={1}
+      radialOffset={50}
+      numbers={[0, 6, 12, 18]}
+      {clockRadius}
+      {clockRotation}
+    />
     <Hand {clockRadius} time={now} />
   </g>
 </svg>
