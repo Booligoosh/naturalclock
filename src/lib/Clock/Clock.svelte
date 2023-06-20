@@ -33,32 +33,32 @@
       <Phase
         start={times.sunset}
         end={times.sunrise}
-        fill="#4d4d4d"
+        fill="hsl(0, 0%, 30%)"
         {clockRadius}
       />
-      <Phase start={times.dusk} end={times.dawn} fill="#333333" {clockRadius} />
+      <Phase start={times.dusk} end={times.dawn} fill="hsl(0, 0%, 23%)" {clockRadius} />
       <Phase
         start={times.nauticalDusk}
         end={times.nauticalDawn}
-        fill="#1a1a1a"
+        fill="hsl(0, 0%, 15%)"
         {clockRadius}
       />
       <Phase
         start={times.night}
         end={times.nightEnd}
-        fill="hsl(0, 0%, 4%)"
+        fill="hsl(0, 0%, 8%)"
         {clockRadius}
       />
       <Phase
         start={times.sunrise}
         end={times.solarNoon}
-        fill="#757575"
+        fill="hsl(0, 0%, 45%)"
         {clockRadius}
       />
       <Phase
         start={times.solarNoon}
         end={times.sunset}
-        fill="#666666"
+        fill="hsl(0, 0%, 40%)"
         {clockRadius}
       />
     </g>
