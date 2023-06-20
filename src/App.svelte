@@ -27,14 +27,18 @@
 </script>
 
 <main>
-  <h1 class="title">NaturalClock</h1>
+  <div />
   <div>
     {#if !isNaN(latitude) && !isNaN(longitude) && !isNaN(altitude)}
       <Clock {now} {latitude} {longitude} {altitude} />
     {/if}
   </div>
-  <div class="time">
-    {now.toLocaleString({}, { timeStyle: "short", hour12: false })}
+  <div>
+    <div class="time">
+      {now.toLocaleString({}, { timeStyle: "short", hour12: false })}
+    </div>
+
+    <h1 class="title">NaturalClock</h1>
   </div>
 </main>
 
@@ -49,7 +53,8 @@
   }
   .title {
     margin: 0;
-    font-size: 1.25rem;
+    margin-top: 0.3rem;
+    font-size: 1.15rem;
     font-weight: 500;
     opacity: 0.5;
   }
